@@ -1,7 +1,7 @@
 # ~/.tmuxinator/azurecon-demo1.yml
 
-name: azurecon-demo3
-root: ~/projects/AzureDevTestDeploy
+name: acs-demo120
+root: ~/devigned/microsoft/az-roadshow-containers/
 
 # Optional tmux socket
 # socket_name: foo

@@ -1,7 +1,7 @@
 # ~/.tmuxinator/azurecon-demo1.yml
 
 name: acs-demo101
-root: ~/proejcts/AzureDevTestDeploy
+root: ~/devigned/microsoft/az-roadshow-containers/
 
 # Optional tmux socket
 # socket_name: foo
@@ -26,11 +26,11 @@ pre: tmux set status off
 # attach: false
 
 # Runs after everything. Use it to attach to tmux with custom options etc.
-# post: tmux -CC attach -t azurecon-demo1
+# post: tmux -CC attach -t acs-demo101
 
 windows:
   - work:
       layout: main-horizontal
       panes:
         - history -r demo/demo101_working_with_containers/commands.txt; clear
-        - watch -n 0.5 "docker ps --format 'table {{.Names}}\t{{.RunningFor}}\t {{.Ports}} {{.Command}}'"
+        - watch -n 0.5 "docker ps --format 'table {{.ID}}\t{{.Names}}\t{{.RunningFor}}\t {{.Ports}} {{.Command}}'"

@@ -22,7 +22,7 @@
 
 ---
 # Hello Web World
-    
+
     docker run -d -p 80:80 tutum/hello-world
     http://MY_HOST
 
@@ -31,11 +31,9 @@
 # Lots of Containers
 
     for i in {1..15}; do docker run -d -p 80 tutum/helloworld; done
-    
+
 ---
 
 # Cleanup
 
     docker rm -f $(docker ps -qa)
-
-
