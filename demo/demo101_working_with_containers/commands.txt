@@ -1,3 +1,4 @@
+docker run -it microsoft/azure-cli
 docker run hello-world
 docker run -d -p 80 tutum/hello-world
 docker-machine ls
