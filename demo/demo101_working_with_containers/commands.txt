@@ -3,5 +3,6 @@ docker run -d -p 80 tutum/hello-world
 docker-machine ls
 lynx $(docker-machine ip default):$(docker port $(docker ps -f "image=tutum/hello-world" -q) | sed -e 's/\(.*\)://g')
 docker stop $(docker ps -q)
-for i in $(docker ps -f "image=tutum/hello-world" -q); do lynx $(docker-machine ip default):$(docker port $i | sed -e s/(.*)://g); done
+for i in {1..15}; do docker run -d -p 80 tutum/hello-world; done
+for i in $(docker ps -f "image=tutum/hello-world" -q); do lynx $(docker-machine ip default):$(docker port $i | sed -e 's/\(.*\)://g'); done
 ./demo/demo101_working_with_containers/teardown.sh

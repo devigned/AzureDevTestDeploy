@@ -1,5 +1,5 @@
-. ./script/config.sh
 lynx $(docker-machine ip $DEV_MACHINE_NAME)
 atom web/www/html/index.php
 docker build -t web web
 ./script/dev.sh
+./demo/demo105_development_with_containers/teardown.sh

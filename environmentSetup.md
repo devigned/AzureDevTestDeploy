@@ -1,7 +1,7 @@
 # Environment Setup #
 
 The purpose of this project is to demonstrate how you might configure a
-development, test and deployment scenario on your workstation and on Azure 
+development, test and deployment scenario on your workstation and on Azure
 using Docker. You will need setup one or more Docker hosts and thus you'll
 need to setup some base tooling.
 
@@ -23,12 +23,12 @@ https://www.virtualbox.org/wiki/Download_Old_Builds_4_3
 
 ## Configure.sh ##
 
-The helper scripts provided are configured in scripts/config.sh. You will
+The helper scripts provided are configured in script/config.sh. You will
 need to create this file. We provide a template file to get you started
 with good defaults where we can. Start by copying the template:
 
     $ cp script/config.tmpl script/config.sh
-    
+
 Now edit this file, being sure to change (at least) the
 STAGING_MACHINE_NAME which must be world unique.
 
@@ -88,7 +88,7 @@ Once you have an active subscription run the following commands in a shell:
     openssl pkcs12 -export -out mycert.pfx -in mycert.pem -name "My Certificate"
     openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer
 
-Now you need to go to the Azure portal (https://manage.windowsazure.com). In the "Settings" 
+Now you need to go to the Azure portal (https://manage.windowsazure.com). In the "Settings"
 section select "Management Certificates" and upload mycert.cer.
 
 Grab your subscription ID from the portal and record this in your
@@ -105,13 +105,13 @@ We will set up Docker host machines as defined in the
 Remember, the name of the staging host in script/config.sh must be
 world unique as it will double as the dns name.
 
-Now you can look a tthe machine status with:
+Now you can look a the machine status with:
 
     docker-machine ls
 
 ### Open Ports on cloud hosted Docker Machines ###
 
-It is necessary to open the appropriate ports on your Docker hosts to allow 
+It is necessary to open the appropriate ports on your Docker hosts to allow
 access to the applications:
 
     - port 80:80for the webapp on the staging machine
@@ -124,7 +124,7 @@ server run:
 
   script/dev.sh
 
-The first time you run this command Docker will pull down the necessry
+The first time you run this command Docker will pull down the neccessry
 container layers and update the packages in the container, this can
 take a little while. Once you have the layers locally subsequent
 builds will be much faster.
@@ -154,4 +154,3 @@ also be able to see the results of these tests by running the command:
 
     eval "$(docker-machine env $DEV_MACHINE_NAME)"
     docker logs load
-

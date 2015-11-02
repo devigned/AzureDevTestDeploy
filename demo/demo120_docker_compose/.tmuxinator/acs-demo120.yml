@@ -31,5 +31,5 @@ windows:
   - work:
       layout: main-horizontal
       panes:
-        - history -r demo/demo3_working_with_containers/commands.txt; clear
-        - watch -n 0.5 "docker ps --format 'table {{.Names}}\t{{.RunningFor}}\t {{.Ports}} {{.Command}}'"
+        - history -r demo/demo120_docker_compose/commands.txt; source ./script/config.sh; eval "$(docker-machine env $DEV_MACHINE_NAME)";  clear
+        - source ./script/config.sh; eval "$(docker-machine env $DEV_MACHINE_NAME)"; watch -n 0.5 "docker ps --format 'table {{.Names}}\t{{.RunningFor}}\t {{.Ports}} {{.Command}}'"

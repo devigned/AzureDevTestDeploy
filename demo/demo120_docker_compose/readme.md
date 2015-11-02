@@ -16,8 +16,8 @@
 
 #  A Scalable Web Front0-ENd
 
-  * Add HA Proxzy
-  * Fire up new PHP containers to manaee inceased load
+  * Add HA Proxy
+  * Fire up new PHP containers to manage increased load
 
 ---
 
@@ -65,7 +65,3 @@
     docker-compose scale web=3
 
 ---
-
-    
-
-

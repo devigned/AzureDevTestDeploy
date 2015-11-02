@@ -2,4 +2,6 @@ atom docker-compose.yml
 docker-compose up -d
 docker-compose stop
 docker-compose scale web=5
-docker-compose scale web=3
+lynx $(docker-machine ip $DEV_MACHINE_NAME)
+docker-compose scale web=1
+./demo/demo120_docker_compose/teardown.sh

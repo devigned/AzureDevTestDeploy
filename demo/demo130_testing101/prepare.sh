@@ -11,14 +11,14 @@ DEMO_HOME=$(dirname $SCRIPT_PATH)
 mkdir ~/.tmuxinator
 cp $DEMO_HOME/.tmuxinator/* ~/.tmuxinator
 
-# Configure Docker
-export DOCKER_HOME=
-export DOCKER=
+. ./../../script/config.sh
+eval "$(docker-machine env $DEV_MACHINE_NAME)"
 
+cd $DEMO_HOME/../..
 # Prepare Docker
 docker-compose -f docker-compose-dev.yml stop
 docker stop $(docker ps -aq)
-docker rm $(docker ps -qa) 
+docker rm $(docker ps -qa)
 
 # Start Docker containers
 docker-compose -f docker-compose-dev.yml up -d
