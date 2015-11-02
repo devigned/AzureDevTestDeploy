@@ -11,18 +11,20 @@ DEMO_HOME=$(dirname $SCRIPT_PATH)
 mkdir ~/.tmuxinator
 cp $DEMO_HOME/.tmuxinator/* ~/.tmuxinator
 
-# Configure Docker
-export DOCKER_HOST=
-export DOCKER=
+. ./../../script/config.sh
+eval "$(docker-machine env $DEV_MACHINE_NAME)"
+
+cd $DEMO_HOME/../..
 
 # Prepare Docker
 cd ci
 docker-compose stop
+docker-compose rm -f
 
 # Start Docker containers
 docker stop $(docker ps -q)
 
-cd ci
+docker-compose build
 docker-compose up -d
 
 # Create tmux session

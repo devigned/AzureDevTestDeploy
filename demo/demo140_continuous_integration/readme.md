@@ -1,6 +1,6 @@
 # Objectives
 
-1. Demonstrate how we can use Jenkins to do continuous integrationt testing
+1. Demonstrate how we can use Jenkins to do continuous integration testing
 
 ---
 

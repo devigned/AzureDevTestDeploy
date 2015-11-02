@@ -1,7 +1,5 @@
-docker logs azuredevtestdeploy_load_test1
+docker logs azroadshowcontainers_load_test_1
 docker-compose scale web=25
 docker-compose up -d
-docker logs azuredevtestdeploy_load_test1
-
-
-
+docker logs azroadshowcontainers_load_test_1
+./demo/demo140_continuos_integration/teardown.sh

@@ -1,7 +1,7 @@
 # ~/.tmuxinator/azurecon-demo1.yml
 
 name: acs-demo140
-root: ~/projects/AzureDevTestDeploy
+root: ~/devigned/microsoft/az-roadshow-containers/
 
 # Optional tmux socket
 # socket_name: foo
@@ -31,10 +31,10 @@ windows:
   - work:
       layout: main-horizontal
       panes:
-        - history -r demo/demo1_working_with_containers/commands.txt; clear
-        - watch -n 0.5 "docker ps --format 'table {{.Names}}\t{{.RunningFor}}\t {{.Ports}}'"
+        - history -r demo/demo140_continuos_integration/commands.txt; source ./script/config.sh; eval "$(docker-machine env $DEV_MACHINE_NAME)"; clear
+        - source ./script/config.sh; eval "$(docker-machine env $DEV_MACHINE_NAME)"; watch -n 0.5 "docker ps --format 'table {{.Names}}\t{{.RunningFor}}\t {{.Ports}}'"
   - test:
       layout: main-horizontal
       panes:
-        - watch 'docker logs azuredevtestdeploy_integration_test_1 2> /dev/null'
-        - watch 'docker logs azuredevtestdeploy_load_test_1 2> /dev/null | tac | grep -o -m 3 "^Requests per second.*$"'
+        - source ./script/config.sh; eval "$(docker-machine env $DEV_MACHINE_NAME)"; watch 'docker logs azuredevtestdeploy_integration_test_1 2> /dev/null'
+        - source ./script/config.sh; eval "$(docker-machine env $DEV_MACHINE_NAME)"; watch 'docker logs azuredevtestdeploy_load_test_1 2> /dev/null | tac | grep -o -m 3 "^Requests per second.*$"'

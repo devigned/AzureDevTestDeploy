@@ -3,5 +3,5 @@ jenkins:
     file: docker-compose-template.yml
     service: jenkins
   volumes:
-    - ./jenkins/jenkins_home:/var/jenkins_home 
-    - /var/run/docker.sock:/var/run/docker.sock
+    - ./jenkins/jenkins_home:/var/jenkins_home
+    - /Users/david/.docker/machine/machines:/var/.docker/machine/machines

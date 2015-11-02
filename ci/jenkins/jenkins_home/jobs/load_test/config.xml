@@ -44,7 +44,7 @@
 docker-compose -p ${NAME} up -d web 1&gt;/dev/null
 docker-compose -p ${NAME} scale web=3 1&gt;/dev/null
 docker-compose -p ${NAME} up -d lb 1&gt;/dev/null
-docker-compose -p ${NAME} run load_test
+# docker-compose -p ${NAME} run load_test
 </command>
     </hudson.tasks.Shell>
   </builders>
