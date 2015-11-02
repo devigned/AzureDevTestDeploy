@@ -1,0 +1,6 @@
+docker run -d -p 80 tutum/hello-world
+docker-machine ls
+open http://$(docker-machine ip $STAGE_MACHINE_NAME):$(docker port $(docker ps -f "image=tutum/hello-world" -q) | sed -e 's/\(.*\)://g')
+docker stop $(docker ps -q)
+for i in {1..15}; do docker run -d -p 80 tutum/hello-world; done
+./demo/demo101_working_with_containers/teardown.sh
