@@ -1,5 +1,5 @@
 #!/bin/sh
-. ../../config.sh
+. ./script/config.sh
 eval "$(docker-machine env $DEV_MACHINE_NAME)"
 docker-compose -f docker-compose-dev.yml stop
 docker stop $(docker ps -aq)

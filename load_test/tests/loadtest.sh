@@ -2,9 +2,10 @@
 SCRIPTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # Test Parameters
+echo "script directory is: $SCRIPTDIR"
 SERVER="http://web/"
 TIP_FILE="$SCRIPTDIR/load_test_in_progress"
-OUT_FILE="$SCRIPTDIR/benchmark.tsv"
+OUT_FILE="benchmark.tsv"
 AB_RESULTS_FILE="$SCRIPTDIR/ab_results.txt"
 TST_RESULTS_FILE="$SCRIPTDIR/test_results.txt"
 
@@ -19,7 +20,7 @@ touch $TIP_FILE
 
 # Run the benchmark
 echo "Running Apache Benchmark"
-ab -c 5 -t 60 -g $OUT_FILE $SERVER | tee $AB_RESULTS_FILE
+ab -c 5 -t 60 -r -g $OUT_FILE $SERVER | tee $AB_RESULTS_FILE
 
 # Generate results file
 echo "Generating results file"
